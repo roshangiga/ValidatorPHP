@@ -9,7 +9,6 @@
 namespace validator;
 
 /**
- *
  * Validates that the input is greater than or equal to a minimum value.
  */
 class MinValue implements ValidationRule
@@ -18,6 +17,7 @@ class MinValue implements ValidationRule
 
     /**
      * Validates that the input is greater than or equal to a minimum value.
+     *
      * @param int $min The minimum allowed value.
      */
     public function __construct($min)
@@ -27,6 +27,7 @@ class MinValue implements ValidationRule
 
     /**
      * Validates that the input is greater than or equal to a minimum value.
+     *
      * @param int $input The input to validate.
      * @return bool True if the input is greater than or equal to the minimum value, false otherwise.
      */

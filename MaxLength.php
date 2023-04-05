@@ -15,18 +15,16 @@ Validates that the input has a maximum length.
 class MaxLength implements ValidationRule {
     private $max;
     /**
-
-    Validates that the input has a maximum length.
-    @param int $max The maximum allowed length.
+    * Validates that the input has a maximum length.
+    * @param int $max The maximum allowed length.
      */
     public function __construct($max) {
         $this->max = $max;
     }
     /**
-
-    Validates that the input has a maximum length.
-    @param string $input The input to validate.
-    @return bool True if the input has a length less than or equal to the maximum, false otherwise.
+    * Validates that the input has a maximum length.
+    * @param string $input The input to validate.
+    * @return bool True if the input has a length less than or equal to the maximum, false otherwise.
      */
     public function validate($input) {
         return (strlen($input) <= $this->max);
