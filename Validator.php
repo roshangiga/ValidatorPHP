@@ -1,0 +1,98 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: roshan.summun
+ * Date: 4/5/2023
+ * Time: 11:40 AM
+ */
+
+namespace validator;
+
+/**
+ *      // Example usage:
+ *      $fields = array(
+ *          'name' => array(new Required(), new Alphanumeric(), new MaxLength(50)),
+ *          'phone' => array(new Numeric())
+ *      );
+ *
+ *      $validator = new Validator($fields);
+ *
+ *      $input = array(
+ *          'name' => 'John Doe',
+ *          'phone' => '1234567890'
+ *      );
+ *
+ *      $errors = $validator->validate($input);
+ *
+ *      if (count($errors) > 0) {
+ *          // Handle validation errors
+ *         echo $validator->generateErrorMessage();
+ *      } else {
+ *          // Input is valid
+ *      }
+ */
+class Validator
+{
+
+    private $fields = array();
+    private $errors;
+
+    public function __construct($fields)
+    {
+        $this->fields = $fields;
+    }
+
+    public function validate($input)
+    {
+        $errors = array();
+
+        foreach ($this->fields as $field => $rules) {
+
+            if (!isset($input[$field])) {
+                continue;
+            }
+
+            foreach ($rules as $rule) {
+                if (!$rule->validate($input[$field])) {
+                    $errors[$field] = $rule->getErrorMessage($field);
+                    break;
+                }
+            }
+        }
+        $this->errors = $errors;
+        return $errors;
+    }
+
+    /**
+     * Generates an HTML error message from an array of validation errors.
+     *
+     * @param array $errors An associative array of field names and validation error messages.
+     * @return string The HTML error message.
+     */
+    public function display_errors($errors = null)
+    {
+        $errors = $errors ?? $this->errors;
+
+        if (empty($errors)) {
+            return '';
+        }
+
+        if (count($errors) > 1) {
+            $str_error = 'errors were';
+        } else {
+            $str_error = 'error was';
+        }
+
+        $errorMessage = '<div class="error-message" style="background-color: #F8D7DA; color: #721C24; border: 1px solid #F5C6CB; padding: 10px; margin-bottom: 10px;">';
+        $errorMessage .= '<h4 style="margin-top: 0;">Form could not be submitted. The following ' . $str_error . ' found:</h4>';
+        $errorMessage .= '<ul style="margin: 0; padding: 0 0 0 20px; ">';
+
+        foreach ($errors as $field => $message) {
+            $errorMessage .= '<li>' . htmlspecialchars($message) . '</li>';
+        }
+
+        $errorMessage .= '</ul></div><br/>';
+
+        return $errorMessage;
+    }
+}
