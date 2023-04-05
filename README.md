@@ -12,7 +12,7 @@ use validator\Alphanumeric;
 
 $fields = array(
     'name' => array(new Required(), new Alphanumeric(), new MaxLength(50)),
-    'phone' => array(new Numeric())
+    'phone' => array(new Mobile())
 );
 
 $validator = new Validator($fields);
