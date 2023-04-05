@@ -1,5 +1,5 @@
 # ValidatorPHP
-Validator library for PHP
+A simple form validator library for PHP
 
 ```php
 // Example usage:
