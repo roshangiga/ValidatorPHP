@@ -22,7 +22,7 @@ $input = array(
     'phone' => $_POST['phone'],
 );
 
-$errors = $validator->validate($input);
+$errors = $validator->validate($input); // you could also pass $_POST directly
 
 if (count($errors) > 0) {
     // Handle validation errors
