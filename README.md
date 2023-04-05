@@ -18,8 +18,8 @@ $fields = array(
 $validator = new Validator($fields);
 
 $input = array(
-    'name' => 'John Doe',
-    'phone' => '1234567890'
+    'name' => $_POST['name'],
+    'phone' => '$_POST['phone']'
 );
 
 $errors = $validator->validate($input);
