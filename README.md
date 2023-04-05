@@ -19,7 +19,7 @@ $validator = new Validator($fields);
 
 $input = array(
     'name' => $_POST['name'],
-    'phone' => '$_POST['phone'],
+    'phone' => $_POST['phone'],
 );
 
 $errors = $validator->validate($input);
