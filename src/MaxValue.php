@@ -24,12 +24,7 @@ class MaxValue implements ValidationRule
         $this->max = (int)$params[0];
     }
 
-    /**
-     * Validates that the input is less than or equal to a maximum value.
-     *
-     * @param int $input The input to validate.
-     * @return bool True if the input is less than or equal to the maximum value, false otherwise.
-     */
+
     public function validate($input)
     {
         return ($input <= $this->max);

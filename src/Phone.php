@@ -17,6 +17,10 @@ class Phone implements ValidationRule
 
     public function validate($value)
     {
+        //remove all spaces and dashes from the value
+        $value = str_replace(' ', '', $value);
+        $value = str_replace('-', '', $value);
+
         return preg_match('/^\d{7}$|^[+230]\d{10}$/', $value);
 
     }

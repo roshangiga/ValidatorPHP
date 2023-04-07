@@ -20,7 +20,7 @@ class NIC implements ValidationRule
      */
     public function validate($value)
     {
-        return isValidNicNumberFormat($value) && isValidNicNumber($value);
+        return $this->isValidNicNumberFormat($value) && $this->isValidNicNumber($value);
     }
 
     public function getErrorMessage($field)

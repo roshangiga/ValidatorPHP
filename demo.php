@@ -11,25 +11,28 @@ require_once 'vendor/autoload.php';
 
 use RoshanSummun\Phpvalidator\Validator;
 
-$fields = array(
-    'name' => 'Required|Alphanumeric',
+$rules = array(
+    'name' => 'Required|Alphanumeric|MaxLength:60',
+    'NID' => 'Required|NIC',
+    'age' => 'Required|NumberBetween:18,60',
     'phone' => 'Mobile'
 );
-$validator = new Validator($fields);
 
-$input = array(
-    'name' => 'username123#',
+$inputs = array(
+    'name' => '',
+    'NID' => 'S120789436523H',
+    'age' => '15',
     'phone' => '57929068'
 );
 
-$errors = $validator->validate($input);
+$errors = (new Validator($rules, $inputs))->validate();
 
-if (count($errors) > 0) {
+if (!empty($errors)) {
     // Handle validation errors
     // echo $validator->display_errors();
     print_r($errors);
 
 } else {
     // Input is valid
-    echo "Input is valid";
+
 }

@@ -36,21 +36,22 @@ use Exception;
 class Validator
 {
 
-    private $fields = array();
+    private $fields;
+    private $inputs;
     private $errors;
 
-    public function __construct($fields)
+    public function __construct($fields, $inputs)
     {
         $this->fields = $fields;
+        $this->inputs = $inputs;
     }
 
     /**
      * Validates an array of input data.
      *
-     * @param array $fields An associative array of field names and values.
      * @return array An associative array of field names and validation error messages.
      */
-    public function validate($fields)
+    public function validate()
     {
         $errors = [];
 
@@ -69,7 +70,7 @@ class Validator
 
                 $validator = new $namespacedRuleName($params);
 
-                if (!$validator->validate($fields[$field])) {
+                if (!$validator->validate($this->inputs[$field])) {
                     $errors[$field][] = $validator->getErrorMessage($field);
                 }
             }

@@ -13,75 +13,69 @@ class ValidatorTest extends TestCase
 {
     public function testRequired()
     {
-        $fields = ['username' => ''];
+        $inputs = ['username' => ''];
         $rules = ['username' => 'Required'];
-        $validator = new Validator($rules);
-        $errors = $validator->validate($fields);
+        $errors = (new Validator($rules, $inputs))->validate();
         $this->assertNotEmpty($errors);
     }
 
     public function testAlphanumeric()
     {
-        $fields = ['username' => 'user@name'];
+        $inputs = ['username' => 'user@name'];
         $rules = ['username' => 'Alphanumeric'];
-        $validator = new Validator($rules);
-        $errors = $validator->validate($fields);
+        $errors = (new Validator($rules, $inputs))->validate();
         $this->assertNotEmpty($errors);
 
-        $fields = ['username' => 'username123'];
-        $errors = $validator->validate($fields);
+        $inputs = ['username' => 'username123'];
+        $errors = (new Validator($rules, $inputs))->validate();
         $this->assertEmpty($errors);
     }
 
     public function testNumeric()
     {
-        $fields = ['age' => '12a'];
+        $inputs = ['age' => '12a'];
         $rules = ['age' => 'Numeric'];
-        $validator = new Validator($rules);
-        $errors = $validator->validate($fields);
+        $errors = (new Validator($rules, $inputs))->validate();
         $this->assertNotEmpty($errors);
 
-        $fields = ['age' => '12'];
-        $errors = $validator->validate($fields);
+        $inputs = ['age' => '12'];
+        $errors = (new Validator($rules, $inputs))->validate();
         $this->assertEmpty($errors);
     }
 
     public function testText()
     {
-        $fields = ['name' => 'John123'];
+        $inputs = ['name' => 'John123'];
         $rules = ['name' => 'Text'];
-        $validator = new Validator($rules);
-        $errors = $validator->validate($fields);
+        $errors = (new Validator($rules, $inputs))->validate();
         $this->assertNotEmpty($errors);
 
-        $fields = ['name' => 'John Doe'];
-        $errors = $validator->validate($fields);
+        $inputs = ['name' => 'John Doe'];
+        $errors = (new Validator($rules, $inputs))->validate();
         $this->assertEmpty($errors);
     }
 
     public function testMaxLength()
     {
-        $fields = ['username' => 'abcdefghijklmnopqrstuvwxyabcdefghijklmnopqrstuvwxy'];
+        $inputs = ['username' => 'abcdefghijklmnopqrstuvwxyabcdefghijklmnopqrstuvwxy'];
         $rules = ['username' => 'MaxLength:20'];
-        $validator = new Validator($rules);
-        $errors = $validator->validate($fields);
+        $errors = (new Validator($rules, $inputs))->validate();
         $this->assertNotEmpty($errors);
 
-        $fields = ['username' => 'abcdefghijklmnopqrst'];
-        $errors = $validator->validate($fields);
+        $inputs = ['username' => 'abcdefghijklmnopqrst'];
+        $errors = (new Validator($rules, $inputs))->validate();
         $this->assertEmpty($errors);
     }
 
     public function testBetween()
     {
-        $fields = ['age' => 200];
+        $inputs = ['age' => 200];
         $rules = ['age' => 'NumberBetween:1,120'];
-        $validator = new Validator($rules);
-        $errors = $validator->validate($fields);
+        $errors = (new Validator($rules, $inputs))->validate();
         $this->assertNotEmpty($errors);
 
-        $fields = ['age' => 25];
-        $errors = $validator->validate($fields);
+        $inputs = ['age' => 25];
+        $errors = (new Validator($rules, $inputs))->validate();
         $this->assertEmpty($errors);
     }
 }

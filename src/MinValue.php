@@ -15,6 +15,10 @@ class MinValue implements ValidationRule
 {
     private $min;
 
+    /**
+     * Validates that the input exceeds a minimum value.
+     *
+     */
     public function __construct($params = [])
     {
         $this->min = (int)$params[0];

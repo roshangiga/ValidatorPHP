@@ -13,10 +13,6 @@ namespace RoshanSummun\Phpvalidator;
  */
 class Required implements ValidationRule {
 
-    public function __construct($params = [])
-    {
-    }
-
     public function validate($value) {
         return !empty($value);
     }

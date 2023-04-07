@@ -13,12 +13,7 @@ namespace RoshanSummun\Phpvalidator;
  */
 class URL implements ValidationRule
 {
-    /**
-     * Validates that the input is a valid URL.
-     *
-     * @param string $input The input to validate.
-     * @return bool True if the input is a valid URL, false otherwise.
-     */
+
     public function validate($input)
     {
         return filter_var($input, FILTER_VALIDATE_URL);

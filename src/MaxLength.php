@@ -22,7 +22,7 @@ class MaxLength implements ValidationRule
      */
     public function __construct($params = [])
     {
-        $this->max = (int)$params[0];
+        $this->max = $params[0];
     }
 
     public function validate($value)
