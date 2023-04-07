@@ -6,22 +6,20 @@
  * Time: 12:39 PM
  */
 
-namespace validator;
+namespace RoshanSummun\Phpvalidator;
 
 /**
  * Validates that a value is present.
  */
 class Required implements ValidationRule {
-    /**
-     * Validates that a value is present.
-     *
-     * @param mixed $input The input to validate.
-     * @return bool True if the input is present, false otherwise.
-     */
-    public function validate($input) {
-        return !empty($input);
+
+    public function __construct($params = [])
+    {
     }
 
+    public function validate($value) {
+        return !empty($value);
+    }
 
     public function getErrorMessage($field) {
         return "$field is required";

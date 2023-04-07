@@ -6,9 +6,9 @@
  * Time: 11:41 AM
  */
 
-namespace validator;
+namespace RoshanSummun\Phpvalidator;
 
 interface ValidationRule {
-    public function validate($input);
+    public function validate($value);
     public function getErrorMessage($field);
 }

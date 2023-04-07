@@ -6,7 +6,7 @@
  * Time: 12:01 PM
  */
 
-namespace validator;
+namespace RoshanSummun\Phpvalidator;
 
 /**
  * Validates that the input is a valid URL.

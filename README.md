@@ -1,33 +1,87 @@
 # ValidatorPHP
-A simple form validator library for PHP
+PHP Validator is a simple and flexible validation library for PHP. Easily validate form inputs or any other data using a set of built-in rules or create custom validators to fit your needs.
 
+## Features
+
+- Simple and easy-to-use syntax
+- Built-in validation rules
+- Customizable error messages
+- Extendable with custom validation rules
+
+## Installation
+Use [Composer](https://getcomposer.org/) to install PHP Validator:
+
+```bash
+composer require roshansummun/phpvalidator
+```
+
+composer require roshansummun/phpvalidator
+
+
+
+## Example Usage
 ```php
 // Example usage:
-require 'autoloader.php';
+require_once 'vendor/autoload.php';
 
-use validator\Validator;
-use validator\Required;
-use validator\Alphanumeric;
-// Others..
+use RoshanSummun\Phpvalidator\Validator;
 
 $fields = array(
-    'name' => array(new Required(), new Alphanumeric(), new MaxLength(50)),
-    'phone' => array(new Mobile())
+    'name' => 'Required|Alphanumeric',
+    'phone' => 'Mobile'
 );
-
 $validator = new Validator($fields);
 
 $input = array(
-    'name' => $_POST['name'],
-    'phone' => $_POST['phone'],
+    'name' => 'username123#',
+    'phone' => '57929068'
 );
 
-$errors = $validator->validate($input); // you could also pass $_POST directly
+$errors = $validator->validate($input);
 
 if (count($errors) > 0) {
     // Handle validation errors
-    echo $validator->generateErrorMessage();
+    // echo $validator->display_errors();
+    print_r($errors);
+
 } else {
     // Input is valid
+    echo "Input is valid";
 }
 ```
+## Built-in Validators
+
+The following validators are included out of the box:
+
+- Alphanumeric
+- Required
+- MinLength
+- NIC
+- Phone
+- Email
+- MinValue
+- MaxLength
+- URL
+- Mobile
+- Numeric
+- Text
+- MaxValue
+- NumberBetween
+
+## Custom Validators
+
+The following validators are included out of the box:
+
+- validate($value)
+- getErrorMessage($field)
+
+See the source code for examples of custom validators.
+
+
+## Contributing
+
+Contributions are welcome! If you find a bug or have a feature request, please create an issue or submit a pull request.
+
+## License
+
+This project is licensed under the [MIT License](https://opensource.org/licenses/MIT). See the [LICENSE](LICENSE) file for details.

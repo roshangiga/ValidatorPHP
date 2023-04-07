@@ -6,7 +6,7 @@
  * Time: 5:06 PM
  */
 
-namespace validator;
+namespace RoshanSummun\Phpvalidator;
 
 class NIC implements ValidationRule
 {
@@ -15,12 +15,12 @@ class NIC implements ValidationRule
      *
      * Note that there it validates both NIC format and then validates the checksum. If any is incorrect it fails.
      *
-     * @param string $input The input to validate.
+     * @param $value
      * @return bool True if valid.
      */
-    public function validate($input)
+    public function validate($value)
     {
-        return isValidNicNumberFormat($input) && isValidNicNumber($input);
+        return isValidNicNumberFormat($value) && isValidNicNumber($value);
     }
 
     public function getErrorMessage($field)
@@ -45,7 +45,7 @@ class NIC implements ValidationRule
      */
     public function isValidNicNumberFormat($nicNumber)
     {
-        $regex = '/^[a-zA-Z][0-9]{12}([a-zA-Z]|[0-9])$/';
+        $regex = '/^[a-zA-Z]\d{12}([a-zA-Z]|\d)$/';
         return preg_match($regex, $nicNumber);
     }
 

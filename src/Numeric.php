@@ -6,22 +6,17 @@
  * Time: 11:42 AM
  */
 
-namespace validator;
+namespace RoshanSummun\Phpvalidator;
 
 /**
  * Validates that the input is a numeric value.
  */
 class Numeric implements ValidationRule
 {
-    /**
-     * Validates that the input is a numeric value.
-     *
-     * @param string $input The input to validate.
-     * @return bool True if the input is a numeric value, false otherwise.
-     */
-    public function validate($input)
+
+    public function validate($value)
     {
-        return is_numeric($input);
+        return is_numeric($value);
     }
 
     public function getErrorMessage($field)

@@ -6,8 +6,10 @@
  * Time: 12:04 PM
  */
 
-namespace validator;
+namespace RoshanSummun\Phpvalidator;
 
+
+use http\Params;
 
 /**
  * Validates that the input is less than or equal to a maximum value.
@@ -16,14 +18,10 @@ class MaxValue implements ValidationRule
 {
     private $max;
 
-    /**
-     * Validates that the input is less than or equal to a maximum value.
-     *
-     * @param int $max The maximum allowed value.
-     */
-    public function __construct($max)
+
+    public function __construct($params = [])
     {
-        $this->max = $max;
+        $this->max = (int)$params[0];
     }
 
     /**

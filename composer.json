@@ -1,0 +1,20 @@
+{
+    "name": "roshan.summun/phpvalidator",
+    "description": "A simple library for validating fields",
+    "type": "library",
+    "autoload": {
+        "psr-4": {
+            "RoshanSummun\\Phpvalidator\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Roshan Summun",
+            "email": "roshangiga@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.4",
+        "phpunit/phpunit": "^9.5"
+    }
+}

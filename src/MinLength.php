@@ -6,7 +6,7 @@
  * Time: 11:59 AM
  */
 
-namespace validator;
+namespace RoshanSummun\Phpvalidator;
 
 /**
  * Validates that the input has a minimum length.
@@ -15,14 +15,10 @@ class MinLength implements ValidationRule
 {
     private $min;
 
-    /**
-     * Validates that the input has a minimum length.
-     *
-     * @param int $min The minimum allowed length.
-     */
-    public function __construct($min)
+
+    public function __construct($params = [])
     {
-        $this->min = $min;
+        $this->min = (int)$params[0];
     }
 
     /**
