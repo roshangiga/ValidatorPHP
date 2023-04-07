@@ -68,7 +68,7 @@ The following validators are included out of the box:
 
 ## Custom Validators
 
-The following validators are included out of the box:
+Create your own validator classes by implementing the ValidationRule Interface and implementing:
 
 - validate($value)
 - getErrorMessage($field)
