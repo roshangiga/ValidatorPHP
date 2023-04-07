@@ -15,10 +15,6 @@ Use [Composer](https://getcomposer.org/) to install PHP Validator:
 composer require roshansummun/phpvalidator
 ```
 
-composer require roshansummun/phpvalidator
-
-
-
 ## Example Usage
 ```php
 // Example usage:
