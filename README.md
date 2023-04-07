@@ -15,10 +15,6 @@ Use [Composer](https://getcomposer.org/) to install PHP Validator:
 composer require roshansummun/phpvalidator
 ```
 
-composer require roshansummun/phpvalidator
-
-
-
 ## Example Usage
 ```php
 // Example usage:
@@ -70,7 +66,7 @@ The following validators are included out of the box:
 
 ## Custom Validators
 
-The following validators are included out of the box:
+Create your own validator classes by implementing the following methods:
 
 - validate($value)
 - getErrorMessage($field)
