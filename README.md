@@ -14,7 +14,6 @@ Use [Composer](https://getcomposer.org/) to install PHP Validator:
 ```bash
 composer require roshansummun/phpvalidator
 ```
-[LICENSE](..%2FValidatorPHP%2FLICENSE)
 ## Example Usage
 ```php
 require_once 'vendor/autoload.php';
